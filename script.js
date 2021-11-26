@@ -131,6 +131,6 @@ if (!location.hash) {
 
   const joinRoom = () =>{
     var roomKey = document.getElementById('roomId').value;
-    window.location.replace(`http://127.0.0.1:5500/index.html#${roomKey}`);
+    window.location.replace(`https://rohan-kademani.github.io/video-caller/#${roomKey}`);
   }
 
