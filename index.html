@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+      
+    <script src='https://cdn.scaledrone.com/scaledrone.min.js'></script>
+    <title>SimpleWebRTC Demo</title>
+    <style>
+        html {
+            margin-top: 20px;
+        }
+
+        body {
+            background: url(./images/bg.jpg) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+        .ui.header {
+            border: none;
+            margin: calc(2rem - .14285714em) 0 1rem;
+            padding: 0 0;
+            font-family: monospace;
+            font-weight: 700;
+            line-height: 1.28571429em;
+            color: rgb(255 255 255 / 87%);
+        }
+
+        .navbar {
+            display: flex;
+        }
+
+        i.icon,
+        i.icons {
+            font-size: 3rem;
+            margin-top: 30px;
+            margin-right: 20px;
+            color: #fff;
+        }
+
+        .ui.form {
+            font-size: 1.3rem;
+        }
+
+        #chat-content {
+            height: 180px;
+            overflow-y: scroll;
+        }
+
+        .close {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Main Content -->
+    <div class="ui container">
+        <div class="navbar">
+            <i class="video icon"></i>
+            <h1 class="ui header">P2P Video Chat</h1>
+        </div>
+        <hr>
+        <div class="ui two column stackable grid">
+
+            <!-- Chat Section -->
+            <div class="ui eight wide column">
+                <div class="ui segment" style="margin-top: 3em;
+                padding: 3em;">
+                    <!-- Chat Room Form -->
+                    <div class="ui form">
+                        <div class="fields">
+                            <div class="field">
+                                <label>Room ID</label>
+                                <input type="text" placeholder="Enter room ID" id="roomId" name="username">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="ui buttons">
+                            <div id="create-btn" onclick="createId()" class="ui submit orange button">Create Room</div>
+                            <div class="or"></div>
+                            <div id="join-btn" onclick="joinRoom()" class="ui submit green button">Join Room</div>
+                        </div>
+                    </div>
+                    <!-- Chat Room Messages -->
+                    <h2 id="token"></h2>
+                </div>
+            </div>
+            <!-- End of Chat Section -->
+
+            <!-- Remote Camera -->
+            <div class="ui six wide column">
+                <h4 class="ui center aligned header" style="margin:0;">
+                    Remote Camera
+                </h4>
+                <div class="remote">
+                    <img id="remote-image" class="ui large image" src="images/image.png">
+                </div>
+                <video id="remoteVideo" class="ui large image hidden" autoplay></video>
+            </div>
+
+        </div>
+
+        <!-- Local Cameras -->
+        <h3 class="ui aligned header">Local Camera</h3>
+        <div class="four wide column centered">
+            <div class="local">
+                <img id="local-image" class="ui medium image" src="images/image.png">
+            </div>
+            <video id="localVideo" class="ui medium image" autoplay muted></video>
+        </div>
+    </div>
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+
+</html>
